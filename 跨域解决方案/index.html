@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+  <script>
+    var input = document.getElementsByTagName("input")[0]
+    input.addEventListener("input", search)
+    function search() {
+      var val = input.value.trim()
+      if (val.length > 0) getDatas(val, "setDatas")
+    }
+    function getDatas(val,cb) {
+      var oScript=document.createElement("script")
+      oScript.src="https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=33425,33355,33273,31254,33284,33287,33334,33320&wd="+val+"&req=2&bs=123&pbs=123&csor=4&pwd=123&cb="+cb+"&_=1610704574139"
+      document.body.appendChild(oScript)
+    }
+    window.setDatas=function(data){
+      console.log(data);
+    }
+  </script>
+</body>
+
+</html>
